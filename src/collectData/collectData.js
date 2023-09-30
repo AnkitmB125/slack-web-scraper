@@ -8,7 +8,8 @@ const { throwErrorIfNoConversationOrChannel } = require('./utils/scrape/parseNam
 const { scrapeConversations, scrapeChannels } = require('./utils/scrape')
 const { closeBrowser } = require('./utils/closeBrowser')
 
-;(async () => {
+async function collectDataPoints() {
+
   recordScrapeDuration()
   const { page, browser } = await launchBrowser()
 
@@ -20,4 +21,7 @@ const { closeBrowser } = require('./utils/closeBrowser')
   await scrapeChannels(page)
 
   await closeBrowser(browser)
-})()
+
+}
+
+module.exports = { collectDataPoints }

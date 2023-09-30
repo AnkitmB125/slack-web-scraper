@@ -5,7 +5,7 @@ async function ScrollFeed(page, channelFeedSelector) {
   const channelFeedHandle = await page.waitForSelector(channelFeedSelector)
 
   return {
-    async toTop(onScrollCallback = async () => {}) {
+    async toTop(onScrollCallback = async () => { }) {
       const startTime = new Date()
       console.log('Scrolling to top...', getHoursAndMinutesTimestamp())
       do {
@@ -18,7 +18,7 @@ async function ScrollFeed(page, channelFeedSelector) {
       } while (!(await this.isScrolledToTop()))
       console.log('Scrolled to top.', getHoursAndMinutesTimestamp())
     },
-    async toBottom(onScrollCallback = async () => {}) {
+    async toBottom(onScrollCallback = async () => { }) {
       do {
         await onScrollCallback()
         await this.down()
@@ -49,8 +49,8 @@ async function ScrollFeed(page, channelFeedSelector) {
     async doubleCheck(check, type) {
       if (await check()) {
         type === 'top' ? await page.mouse.wheel({ deltaY: -75 }) : await page.mouse.wheel({ deltaY: 75 })
-        console.log(`Double checking if scrolled to ${type === 'top' ? 'top' : 'bottom'}. Waiting seven seconds.`)
-        await page.waitForTimeout(7000)
+        console.log(`Double checking if scrolled to ${type === 'top' ? 'top' : 'bottom'}. Waiting one second.`)
+        await page.waitForTimeout(1000)
         const result = await check()
         console.log(`Double checked if scrolled to ${type === 'top' ? 'top' : 'bottom'}. Result: ${result}`)
         return result

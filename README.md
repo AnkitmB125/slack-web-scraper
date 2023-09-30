@@ -43,8 +43,8 @@ For example, if you're in the process of leaving your current company to join an
   - Helpful if you do not want to scrape all the replies that are made on a message but just have the main message.
 
 3. Before starting the scrape, make sure the Slack App language is set to English. You can reset it once the scrape is finished.
-
-4. Run `npm run collect`. You will see the browser open and start scraping data unless you set `HEADLESS_MODE` to `true`. In headless mode you will see status updates on the scraping process in the console output.
+4. Run `npm run cp`. This will start a server on port 3000
+5. [NOT NEEDED] Run `npm run collect`. You will see the browser open and start scraping data unless you set `HEADLESS_MODE` to `true`. In headless mode you will see status updates on the scraping process in the console output.
 
 ### Tip for collecting data with Windows Subsystem for Linux
 

@@ -5,8 +5,10 @@ const SLACK_DATA_FOLDER_PATH = 'slack-data/'
 
 async function promptFileToParse() {
   const defaultFilePaths = await getDefaultFilePaths()
-  const { filePath } = await prompt(defaultFilePaths)
-  return filePath
+  // console.log(defaultFilePaths)
+  // const { filePath } = await prompt(defaultFilePaths)
+  // const { filePath } = defaultFilePaths[0]
+  return defaultFilePaths[0]
 }
 
 async function getDefaultFilePaths() {
