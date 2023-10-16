@@ -26,15 +26,15 @@ async function ScrollFeed(page, channelFeedSelector) {
     },
     async up() {
       await page.hover(channelFeedSelector)
-      await page.mouse.wheel({ deltaY: -5000 })
+      await page.mouse.wheel({ deltaY: -1000 })
       await page.waitForTimeout(1000)
       HEADLESS_MODE && (await page.waitForTimeout(1000))
     },
     async down() {
       await page.hover(channelFeedSelector)
-      await page.mouse.wheel({ deltaY: 4000 })
+      await page.mouse.wheel({ deltaY: 800 })
       await page.waitForTimeout(500)
-      HEADLESS_MODE && (await page.waitForTimeout(1000))
+      HEADLESS_MODE && (await page.waitForTimeout(2000))
     },
     async isScrolledToTop() {
       // If channel feed is overflowing beyond the top of the viewport, then there's still more to scroll up.
@@ -50,7 +50,7 @@ async function ScrollFeed(page, channelFeedSelector) {
       if (await check()) {
         type === 'top' ? await page.mouse.wheel({ deltaY: -75 }) : await page.mouse.wheel({ deltaY: 75 })
         console.log(`Double checking if scrolled to ${type === 'top' ? 'top' : 'bottom'}. Waiting one second.`)
-        await page.waitForTimeout(1000)
+        await page.waitForTimeout(5000)
         const result = await check()
         console.log(`Double checked if scrolled to ${type === 'top' ? 'top' : 'bottom'}. Result: ${result}`)
         return result

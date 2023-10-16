@@ -8,6 +8,8 @@ async function launchBrowser() {
     options = {
       headless: true,
       defaultViewport: { height: 6000, width: 1463 },
+      DISPLAY: ":10.0",
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
     }
   } else {
     options = {
@@ -15,6 +17,8 @@ async function launchBrowser() {
       headless: false,
       // set `defaultViewport` to `null` if wish for viewport to resize according to window size like a normal browser
       defaultViewport: null,
+      DISPLAY: ":10.0",
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
       // set `defaultViewport` to whatever height and width is suitable (you may want to be larger so can scrape data in bigger batches before scrolling)
       // defaultViewport: { height: 4000, width: 1463 },
     }
